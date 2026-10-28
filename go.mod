@@ -1,4 +1,4 @@
-module play-tool
+module github.com/fgp555/play-tool
 
 go 1.26.8
 

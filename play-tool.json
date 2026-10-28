@@ -1,0 +1,7 @@
+{
+  "package": "com.frankgp.tools",
+  "track": "internal",
+  "aab": "app/build/outputs/bundle/release/app-release.aab",
+  "key": "C:/android/play-service-account.json",
+  "gradleRoot": "."
+}
