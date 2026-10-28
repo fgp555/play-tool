@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#10151d" />
+    <title>play-tool</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand-mark">P</div>
+        <div>
+          <p class="eyebrow">ANDROID RELEASE DESK</p>
+          <h1>play-tool</h1>
+        </div>
+        <div class="topbar-spacer"></div>
+        <span class="version">LOCAL</span>
+      </header>
+
+      <section class="project-card panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">PROYECTO ACTIVO</p>
+            <h2 id="project-name">Detectando proyecto…</h2>
+          </div>
+          <button id="refresh-project" class="icon-button" title="Actualizar proyecto" aria-label="Actualizar proyecto">↻</button>
+        </div>
+        <div class="project-picker">
+          <input id="project-path" type="text" spellcheck="false" aria-label="Ruta del proyecto" />
+          <button id="pick-folder" class="secondary-button">Elegir carpeta</button>
+        </div>
+        <div id="project-error" class="error-banner hidden"></div>
+        <div class="facts">
+          <div class="fact"><span>Paquete</span><strong id="package-name">—</strong></div>
+          <div class="fact"><span>Pista</span><strong id="track-name">—</strong></div>
+          <div class="fact"><span>Raíz Gradle</span><strong id="gradle-root">—</strong></div>
+          <div class="fact"><span>Configuración</span><strong id="config-name">—</strong></div>
+        </div>
+      </section>
+
+      <section class="credentials panel">
+        <div class="credentials-copy">
+          <p class="eyebrow">GOOGLE PLAY</p>
+          <h2>Credenciales</h2>
+          <p id="credential-status" class="muted">Revisando configuración…</p>
+        </div>
+        <div class="key-picker">
+          <input id="key-path" type="text" spellcheck="false" placeholder="PLAY_TOOL_KEY o ruta configurada en play-tool.json" aria-label="Ruta del JSON de credenciales" />
+          <button id="pick-key" class="secondary-button">Seleccionar JSON</button>
+        </div>
+      </section>
+
+      <section class="actions-grid">
+        <article class="action-group panel">
+          <p class="eyebrow">COMPILAR E INSTALAR</p>
+          <div class="button-grid">
+            <button class="action-button" data-action="assembleDebug"><span>🛠️</span>Compilar debug</button>
+            <button class="action-button" data-action="installDebug"><span>📲</span>Instalar debug</button>
+            <button class="action-button" data-action="assembleRelease"><span>🛠️</span>Compilar release</button>
+            <button class="action-button" data-action="installRelease"><span>📲</span>Instalar release</button>
+            <button class="action-button wide" data-action="bundleRelease"><span>📦</span>Compilar AAB release</button>
+          </div>
+        </article>
+
+        <article class="action-group panel play-actions">
+          <p class="eyebrow">PUBLICACIÓN</p>
+          <div class="button-grid">
+            <button class="action-button" data-action="show"><span>🔎</span>Ver publicado</button>
+            <button class="action-button" data-action="upload"><span>📤</span>Subir AAB</button>
+            <button class="action-button primary wide" data-action="deploy"><span>🚀</span>Desplegar</button>
+            <button class="action-button wide" data-action="build"><span>🧱</span>Compilar AAB (clean)</button>
+          </div>
+          <p class="deploy-note">Desplegar incrementa versionCode, compila y publica.</p>
+        </article>
+
+        <article class="action-group panel">
+          <p class="eyebrow">INSPECCIONAR ARTEFACTOS</p>
+          <div class="button-grid">
+            <button class="action-button" data-action="infoDebug"><span>🔍</span>Info APK debug</button>
+            <button class="action-button" data-action="infoRelease"><span>🔍</span>Info APK release</button>
+            <button class="action-button wide" data-action="infoBundle"><span>🔍</span>Info AAB release</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="console panel">
+        <div class="console-heading">
+          <div>
+            <p class="eyebrow">ACTIVIDAD</p>
+            <h2>Salida del comando</h2>
+          </div>
+          <div class="console-tools">
+            <span id="run-status" class="run-status idle"><i></i>Listo</span>
+            <button id="clear-output" class="text-button">Limpiar</button>
+          </div>
+        </div>
+        <pre id="output" aria-live="polite">Selecciona una acción para empezar.</pre>
+      </section>
+      <footer>Las acciones se ejecutan localmente en el proyecto seleccionado.</footer>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

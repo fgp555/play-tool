@@ -282,4 +282,3 @@ func resolveJDKTool(name string) (string, error) {
 	}
 	return "", fmt.Errorf("no se encontró %s; revisa JAVA_HOME o agrega el JDK al PATH", name)
 }
-

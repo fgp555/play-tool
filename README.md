@@ -7,7 +7,7 @@
 Desde PowerShell, instala el ejecutable:
 
 ```powershell
-Set-Location E:\dev\kotlin\com.frankgp.tools\tools\play-tool
+Set-Location E:\dev\android\play-tool
 go install .
 ```
 
@@ -53,8 +53,16 @@ Consulta la versión sin necesidad de que exista un `play-tool.json` en la carpe
 
 ```powershell
 play-tool --version
-# play-tool 1.0.8 go1.27.0 windows/amd64
+# play-tool 1.1.0 go1.27.0 windows/amd64
 ```
+
+Abre la interfaz gráfica local desde cualquier proyecto Android o React Native:
+
+```powershell
+play-tool ui
+```
+
+La ventana permite elegir la carpeta del proyecto, seleccionar el JSON de credenciales y ejecutar las acciones locales mostrando su salida. En Windows necesita WebView2, normalmente disponible en Windows 10 y 11.
 
 Desde cualquier carpeta dentro del proyecto —incluida la raíz— ejecuta el comando sin opciones de configuración:
 
@@ -94,4 +102,4 @@ Los comandos muestran estados con emojis. `upload` presenta una barra porcentual
 
 Si existe, el programa encuentra el `play-tool.json` más cercano al subir desde el directorio actual y se detiene en la raíz Gradle más cercana. También puedes omitirlo si la detección automática cubre tu proyecto y `PLAY_TOOL_KEY` está configurada.
 
-Al ejecutar `play-tool` sin comando se abre el menú interactivo, agrupado en Build e instalación, Información y verificación, y Google Play. Las opciones de Deploy y publicación piden confirmación antes de ejecutarse.
+Al ejecutar `play-tool` sin comando se abre el menú interactivo de terminal. `play-tool ui` abre la ventana de escritorio. Las opciones de Deploy y publicación piden confirmación antes de ejecutarse.

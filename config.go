@@ -31,7 +31,11 @@ func loadConfig() (Config, error) {
 	if err != nil {
 		return Config{}, err
 	}
+	return loadConfigFrom(startDir)
+}
 
+func loadConfigFrom(startDir string) (Config, error) {
+	var err error
 	gradleRoot, projectRoot, foundProject, err := findProjectRoots(startDir)
 	if err != nil {
 		return Config{}, err

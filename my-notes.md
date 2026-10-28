@@ -1,5 +1,5 @@
 ```sh
-cd E:/dev/kotlin/com.frankgp.tools/tools/play-tool
+cd E:\dev\android\play-tool
 go install .
 C:\Users\Frank\go\bin
 where.exe play-tool
@@ -7,16 +7,17 @@ play-tool --version
 play-tool --help
 
 cd E:/dev/kotlin/com.frankgp.tools
-cd E:/dev/rn/com.frankgp.app/android
+cd E:/dev/rn/com.frankgp.app
 
 $env:PLAY_TOOL_KEY = "E:\dev\android\play-service-account.json"
+$env:BUNDLETOOL_JAR = "E:\dev\android\bundletool-all-1.18.3.jar"
 echo $env:PLAY_TOOL_KEY
+echo $env:BUNDLETOOL_JAR
+Test-Path $env:BUNDLETOOL_JAR
 
 # https://github.com/google/bundletool/releases
-$env:BUNDLETOOL_JAR = "E:\dev\android\bundletool-all-1.18.3.jar"
-Test-Path $env:BUNDLETOOL_JAR
-echo $env:BUNDLETOOL_JAR
 
+play-tool ui
 play-tool show
 play-tool build
 play-tool upload

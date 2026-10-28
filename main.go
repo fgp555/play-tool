@@ -11,7 +11,7 @@ import (
 )
 
 // version puede reemplazarse al compilar con -ldflags.
-var version = "1.0.8"
+var version = "1.1.0"
 
 func main() {
 	if len(os.Args) == 2 && os.Args[1] == "--version" {
@@ -20,6 +20,13 @@ func main() {
 	}
 	if len(os.Args) == 2 && (os.Args[1] == "--help" || os.Args[1] == "-h") {
 		printHelp()
+		return
+	}
+	if len(os.Args) == 2 && os.Args[1] == "ui" {
+		if err := runDesktopUI(); err != nil {
+			fmt.Println("❌ Error:", err)
+			os.Exit(1)
+		}
 		return
 	}
 
@@ -199,6 +206,7 @@ Uso:
   play-tool upload          Sube el AAB configurado
   play-tool deploy          Actualiza versionCode, compila y sube
   play-tool --version       Muestra la versión de play-tool, Go y la plataforma
+  play-tool ui               Abre la ventana gráfica local
   play-tool --help          Muestra esta ayuda
 
 Configuración:
