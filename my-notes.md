@@ -57,8 +57,20 @@ keytool -printcert -jarfile android/app/build/outputs/bundle/release/app-release
 apkanalyzer.bat manifest min-sdk app/build/outputs/apk/debug/app-debug.apk
 apkanalyzer.bat manifest target-sdk app/build/outputs/apk/debug/app-debug.apk
 
+```
 
+# publish
 
+```sh
+sed -i '1s|^module play-tool$|module github.com/fgp555/play-tool|' go.mod
+head -n 1 go.mod
 
+git add go.mod
+git commit -m "chore: set Go module path"
+git push
+git tag v1.0.8
+git push origin v1.0.8
 
+go install github.com/fgp555/play-tool@v1.0.8
+play-tool --version
 ```
